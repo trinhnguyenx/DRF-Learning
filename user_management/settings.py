@@ -16,7 +16,7 @@ import sentry_sdk
 
 
 sentry_sdk.init(
-    dsn="https://639dc5ffa5765dee1a1fbad0992f40fc@o4507967220154368.ingest.us.sentry.io/4507967221530624",
+    dsn="https://e820e874ae3beac62ea2fecc878d46b8@o4507971568992256.ingest.us.sentry.io/4507971570630656",
     # Set traces_sample_rate to 1.0 to capture 100%
     # of transactions for tracing.
     traces_sample_rate=1.0,
@@ -85,16 +85,24 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'user_management.wsgi.application'
 
+#Email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'nguyencongtrinhltqb@gmail.com'
+EMAIL_HOST_PASSWORD = 'xruu dfie gngq aytl'
+
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE'  : 'django.db.backends.mysql', # <-- UPDATED line
-        'NAME'    : 'user_management',                 # <-- UPDATED line
-        'USER'    : 'root',                     # <-- UPDATED line
-        'PASSWORD': 'Trinh1406@',              # <-- UPDATED line
-        'HOST'    : '127.0.0.1',                # <-- UPDATED line
+        'ENGINE'  : 'django.db.backends.mysql',
+        'NAME'    : 'user_management',
+        'USER'    : 'root',
+        'PASSWORD': 'Trinh1406@',
+        'HOST'    : '127.0.0.1',
         'PORT'    : '3306',
     }
 }

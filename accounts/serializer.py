@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from django.contrib.auth.hashers import make_password
 
 from .models import CustomUser
 
@@ -7,6 +6,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
         fields = ['id', 'username', 'email', 'first_name', 'last_name','password']
+        # or fileds = '_all_'
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
@@ -19,3 +19,8 @@ class CustomUserSerializer(serializers.ModelSerializer):
         )
         user.save()
         return user
+
+class SendMailSerializer(serializers.Serializer):
+    address = serializers.EmailField()
+    subject = serializers.CharField(max_length=255)
+    message = serializers.CharField()
